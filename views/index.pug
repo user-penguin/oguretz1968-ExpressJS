@@ -1,5 +1,216 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html(lang='en')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/myStyle.css')
+    link(href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900', rel='stylesheet')
+    link(href='/stylesheets/blog.css', rel='stylesheet')
+    link(href='/stylesheets/navbar.css', rel='stylesheet')
+    title Hello, world!
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample08', aria-controls='navbarsExample08', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExample08.collapse.navbar-collapse.justify-content-md-center
+        ul.navbar-nav
+          li.nav-item.active
+            a.nav-link(href='#')
+              | Главная
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#') Авторы
+          li.nav-item
+            a.nav-link(href='#') Посты
+          li.nav-item.dropdown
+            a#dropdown08.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Меню
+            .dropdown-menu(aria-labelledby='dropdown08')
+              a.dropdown-item(href='#') Админочка
+              a.dropdown-item(href='#') Сенсации
+              a.dropdown-item(href='#') Об авторе
+    .container
+      .jumbotron.p-3.p-md-4.text-white.rounded.bg-info
+        .col-md-11.px-0
+          h1.display-5.font-italic Всё о ноготочках
+          p.lead.my-3
+            | Каждая леди должна иметь возможность позволить себе хороший маникюр. Издревле качественно сделанные ногти отличали простых крестьянок от голубокровных богинь...
+          p.lead.mb-0
+            a.text-white.font-weight-bold(href='#') Продолжить чтение статьи...
+      #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+        ol.carousel-indicators
+          li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+          li(data-target='#carouselExampleIndicators', data-slide-to='1')
+        .carousel-inner
+          .carousel-item.active
+            .row.mb-2
+              .col-md-5
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-danger Лаки
+                    h3.mb-0
+                      a.text-dark(href='#') Новый вид шлака
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto Компания Хенкель снова порадовала девочек перед 8 марта
+                    a(href='/article') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/1.jpg', alt='Card image cap')
+              .col-md-7
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-success Дизайн
+                    h3.mb-0
+                      a.text-dark(href='#') Post title
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/2.jpg', alt='Card image cap')
+            .row.mb-2
+              .col-md-6
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-primary Мракобесие
+                    h3.mb-0
+                      a.text-dark(href='#') Featured post
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/3.jpeg', alt='Card image cap')
+              .col-md-6
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-info Гели
+                    h3.mb-0
+                      a.text-dark(href='/article') Post title
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/4.jpg', alt='Card image cap')
+            .row.mb-2
+              .col-md-5
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-primary Фитнес
+                    h3.mb-0
+                      a.text-dark(href='#') Featured post
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/6.jpeg', alt='Card image cap')
+              .col-md-7
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-success Измены
+                    h3.mb-0
+                      a.text-dark(href='#') Post title
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/5.jpg', alt='Card image cap')
+          .carousel-item
+            .row.mb-2
+              .col-md-6
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-primary Узоры
+                    h3.mb-0
+                      a.text-dark(href='#') Featured post
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/7.jpg', alt='Card image cap')
+              .col-md-6
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-success Разное
+                    h3.mb-0
+                      a.text-dark(href='#') Post title
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/8.jpg', alt='Card image cap')
+            .row.mb-2
+              .col-md-7
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-primary Фитнес
+                    h3.mb-0
+                      a.text-dark(href='#') Featured post
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/10.jpeg', alt='Card image cap')
+              .col-md-5
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-success Измены
+                    h3.mb-0
+                      a.text-dark(href='#') Post title
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/9.jpg', alt='Card image cap')
+            .row.mb-2
+              .col-md-5
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-primary Ногти
+                    h3.mb-0
+                      a.text-dark(href='#') Секрет на миллион
+                    .mb-1.text-muted Nov 12
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/12.jpeg', alt='Card image cap')
+              .col-md-7
+                .card.flex-md-row.mb-4.box-shadow.h-md-250
+                  .card-body.d-flex.flex-column.align-items-start
+                    strong.d-inline-block.mb-2.text-success Мракобесие
+                    h3.mb-0
+                      a.text-dark(href='#') Длина ногтей
+                    .mb-1.text-muted Nov 11
+                    p.card-text.mb-auto
+                      | This is a wider card with supporting text below as a natural lead-in to additional content.
+                    a(href='#') Continue reading
+                  img.card-img-right.flex-auto.d-none.d-md-block(src='images/11.jpg', alt='Card image cap')
+        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.sr-only Next
+    footer.blog-footer
+      p
+        | Blog template built for
+        a(href='https://getbootstrap.com/') Bootstrap
+        |  by
+        a(href='https://github.com/user-penguin') @user-penguin
+        | .
+      p
+        a(href='#') Back to top
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write("<script src=\"/assets/js/vendor/jquery-slim.min.js\"></script>")
+    script(src='/assets/js/vendor/popper.min.js')
+    script(src='/dist/js/bootstrap.min.js')
+    script(src='/assets/js/vendor/holder.min.js')
+    script.
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
