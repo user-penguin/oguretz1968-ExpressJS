@@ -16,14 +16,8 @@ body{
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
-.table a.table-link.danger {
-    color: #e74c3c;
-}
-.label {
-    border-radius: 3px;
-    font-size: 0.875em;
-    font-weight: 600;
-}
+
+
 .user-list tbody td .user-subhead {
     font-size: 0.875em;
     font-style: italic;
@@ -61,4 +55,10 @@ a {
     vertical-align: middle;
     border-top: 1px solid #e7ebee;
     padding: 12px 8px;
+}
+
+.avatar {
+    max-width: 300px;
+    min-width: 200px;
+    margin-right: 10px;
 }
