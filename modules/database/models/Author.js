@@ -22,6 +22,9 @@ const Author = sequelize.define('Author', {
     Mission: {
         type: Sequelize.STRING(200),
     },
+    MainText: {
+        type: Sequelize.STRING(5000),
+    },
 });
 
 module.exports = Author;
