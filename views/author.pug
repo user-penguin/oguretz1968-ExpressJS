@@ -1,0 +1,186 @@
+doctype html
+html(lang="en")
+    head
+        // Required meta tags
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        // Bootstrap CSS
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        link(href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet")
+        link(href='stylesheets/author.css' rel="stylesheet")
+        link(href="stylesheets/topAndBottom.css" rel="stylesheet")
+        title Страничка автора
+    body
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            #navbarsExample08.collapse.navbar-collapse.justify-content-md-center
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href="/")
+                            | Главная
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href="#") Авторы
+                    li.nav-item
+                        a.nav-link(href="#") Посты
+                    li.nav-item.dropdown
+                        a#dropdown08.nav-link.dropdown-toggle(href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Меню
+                        .dropdown-menu(aria-labelledby="dropdown08")
+                            a.dropdown-item(href="#") Админочка
+                            a.dropdown-item(href="#") Сенсации
+                            a.dropdown-item(href="#") Об авторе
+        .container.col-md-auto
+            .container.emp-profile
+                form(method="post")
+                    .row
+                        .col-md-4
+                            .profile-img
+                                img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="")
+                                .file.btn.btn-lg.btn-primary
+                                    | Change Photo
+                                    input(type="file" name="file")
+                        .col-md-6
+                            .profile-head
+                                h5
+                                    | Kshiti Ghelani
+                                h6
+                                    | Web Developer and Designer
+                                p.proile-rating
+                                    | RANKINGS :
+                                    span 8/10
+                                ul#myTab.nav.nav-tabs(role="tablist")
+                                    li.nav-item
+                                        a#home-tab.nav-link.active(data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true") About
+                                    li.nav-item
+                                        a#profile-tab.nav-link(data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false") Timeline
+                        .col-md-2
+                            input.profile-request-btn(type="submit" name="btnAddMore" value="Отправить заявку")
+                    .row
+                        .col-md-4
+                            .profile-work
+                                p WORK LINK
+                                a(href="") Website Link
+                                br
+                                a(href="") Bootsnipp Profile
+                                br
+                                a(href="") Bootply Profile
+                                p SKILLS
+                                a(href="") Web Designer
+                                br
+                                a(href="") Web Developer
+                                br
+                                a(href="") WordPress
+                                br
+                                a(href="") WooCommerce
+                                br
+                                a(href="") PHP, .Net
+                                br
+                        .col-md-8
+                            #myTabContent.tab-content.profile-tab
+                                #home.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="home-tab")
+                                    .row
+                                        .col-md-6
+                                            label User Id
+                                        .col-md-6
+                                            p Kshiti123
+                                    .row
+                                        .col-md-6
+                                            label Name
+                                        .col-md-6
+                                            p Kshiti Ghelani
+                                    .row
+                                        .col-md-6
+                                            label Email
+                                        .col-md-6
+                                            p kshitighelani@gmail.com
+                                    .row
+                                        .col-md-6
+                                            label Phone
+                                        .col-md-6
+                                            p 123 456 7890
+                                    .row
+                                        .col-md-6
+                                            label Profession
+                                        .col-md-6
+                                            p Web Developer and Designer
+                                #profile.tab-pane.fade(role="tabpanel" aria-labelledby="profile-tab")
+                                    .row
+                                        .col-md-6
+                                            label Experience
+                                        .col-md-6
+                                            p Expert
+                                    .row
+                                        .col-md-6
+                                            label Hourly Rate
+                                        .col-md-6
+                                            p 10$/hr
+                                    .row
+                                        .col-md-6
+                                            label Total Projects
+                                        .col-md-6
+                                            p 230
+                                    .row
+                                        .col-md-6
+                                            label English Level
+                                        .col-md-6
+                                            p Expert
+                                    .row
+                                        .col-md-6
+                                            label Availability
+                                        .col-md-6
+                                            p 6 months
+                                    .row
+                                        .col-md-12
+                                            label Your Bio
+                                            br
+                                            p Your detail description
+                            div
+                                p
+                                    | Also
+                                    | Displays element information like tag name, class, id, size etc.
+                                    | Outline elements under the cursor
+                                    | Auto copy the generated or sampled colors to the clipboard in CSS RGB, Hex and other formats.
+                                    | Keyboard shortcuts for quickly sampling page colors using the keyboard.
+                                    | Get the color of dynamic elements (hovered links etc.) by resampling the last sampled pixel
+                                    | Bonus features
+                                    | Single-click color picking - click on the main ColorZilla toolbar icon and you're ready to pick (currently only available on Windows).
+                                    | Pick colors from Flash objects
+                                    | Pick colors at any zoom level
+                                p
+                                    | Also
+                                    | Displays element information like tag name, class, id, size etc.
+                                    | Outline elements under the cursor
+                                    | Auto copy the generated or sampled colors to the clipboard in CSS RGB, Hex and other formats.
+                                    | Keyboard shortcuts for quickly sampling page colors using the keyboard.
+                                    | Get the color of dynamic elements (hovered links etc.) by resampling the last sampled pixel
+                                    | Bonus features
+                                    | Single-click color picking - click on the main ColorZilla toolbar icon and you're ready to pick (currently only available on Windows).
+                                    | Pick colors from Flash objects
+                                    | Pick colors at any zoom level
+        footer.blog-footer.navbar-fixed-bottom
+            p
+                | Blog template built for
+                a(href="https://getbootstrap.com/") Bootstrap
+                |  by
+                a(href="https://github.com/user-penguin") @user-penguin
+                | .
+            p
+                a(href="#") Back to top
+        //
+          Bootstrap core JavaScript
+          ==================================================
+        // Placed at the end of the document so the pages load faster
+        script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
+        script(src="/assets/js/vendor/popper.min.js")
+        script(src="/dist/js/bootstrap.min.js")
+        script(src="/assets/js/vendor/holder.min.js")
+        script(src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        // ---- Include the above in your HEAD tag --------
+        script.
+            Holder.addTheme('thumb', {
+                bg: '#55595c',
+                fg: '#eceeef',
+                text: 'Thumbnail'
+            });

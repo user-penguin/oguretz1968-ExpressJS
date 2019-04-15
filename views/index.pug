@@ -8,8 +8,8 @@ html(lang='en')
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
     link(rel='stylesheet', type='text/css', href='/stylesheets/myStyle.css')
     link(href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900', rel='stylesheet')
-    link(href='/stylesheets/blog.css', rel='stylesheet')
-    link(href='/stylesheets/navbar.css', rel='stylesheet')
+    link(href='stylesheets/blog.css', rel='stylesheet')
+    link(href='stylesheets/topAndBottom.css', rel='stylesheet')
     title Hello, world!
   body
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
@@ -18,11 +18,10 @@ html(lang='en')
       #navbarsExample08.collapse.navbar-collapse.justify-content-md-center
         ul.navbar-nav
           li.nav-item.active
-            a.nav-link(href='#')
-              | Главная
+            a.nav-link(href='#') Главная
               span.sr-only (current)
           li.nav-item
-            a.nav-link(href='#') Авторы
+            a.nav-link(href='/authors') Авторы
           li.nav-item
             a.nav-link(href='#') Посты
           li.nav-item.dropdown
@@ -52,7 +51,7 @@ html(lang='en')
                     strong.d-inline-block.mb-2.text-danger Лаки
                     h3.mb-0
                       a.text-dark(href='#') Новый вид шлака
-                    .mb-1.text-muted Nov 12
+                    .mb-1.text-muted Nov 27
                     p.card-text.mb-auto Компания Хенкель снова порадовала девочек перед 8 марта
                     a(href='/article') Continue reading
                   img.card-img-right.flex-auto.d-none.d-md-block(src='images/1.jpg', alt='Card image cap')
@@ -203,8 +202,6 @@ html(lang='en')
       ==================================================
     // Placed at the end of the document so the pages load faster
     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
-    script.
-      window.jQuery || document.write("<script src=\"/assets/js/vendor/jquery-slim.min.js\"></script>")
     script(src='/assets/js/vendor/popper.min.js')
     script(src='/dist/js/bootstrap.min.js')
     script(src='/assets/js/vendor/holder.min.js')
