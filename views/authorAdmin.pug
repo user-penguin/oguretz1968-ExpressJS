@@ -27,14 +27,14 @@ html(lang="en")
                     li.nav-item
                         a.nav-link(href="/authors") Авторы
                     li.nav-item
-                        a.nav-link(href="#") Посты
+                        a.nav-link(href="/posts") Посты
                     li.nav-item.dropdown.active
                         a#dropdown08.nav-link.dropdown-toggle(href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Меню
                         span.sr-only (current)
                         .dropdown-menu(aria-labelledby="dropdown08")
-                            a.dropdown-item(href="#") Админочка
-                            a.dropdown-item(href="#") Сенсации
-                            a.dropdown-item(href="#") Об авторе
+                            a.dropdown-item(href='/authorAdmin') Админочка авторов
+                            a.dropdown-item(href='/articleAdmin') Админочка постов
+                            a.dropdown-item(href='/posts') Об авторе
         input#searchString.form-control.input-sm(type="text" onkeyup="tableSearch()" placeholder="Поиск по таблице" aria-controls="example")
         // поиск строк
         table#authorsTable.table.table-striped.table-bordered

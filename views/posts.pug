@@ -2,7 +2,7 @@ doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
-        title Авторы
+        title Все посты
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
         link(href="/stylesheets/topAndBottom.css" rel="stylesheet")
         link(href="/stylesheets/authors.css" rel="stylesheet")
@@ -14,11 +14,11 @@ html(lang="en")
                 ul.navbar-nav
                     li.nav-item
                         a.nav-link(href="/") Главная
-                    li.nav-item.active
-                        a.nav-link(href="/authors") Авторы
-                            span.sr-only (current)
                     li.nav-item
+                        a.nav-link(href="/authors") Авторы
+                    li.nav-item.active
                         a.nav-link(href="/posts") Посты
+                            span.sr-only (current)
                     li.nav-item.dropdown
                         a#dropdown08.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Меню
                         .dropdown-menu(aria-labelledby='dropdown08')

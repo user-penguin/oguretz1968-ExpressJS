@@ -36,4 +36,9 @@ router.get('/articleAdmin', async function (req, res, next) {
   })
 })
 
+/* GET list of all posts */
+router.get('/posts', function (req, res, next) {
+  res.render('posts')
+})
+
 module.exports = router
