@@ -5,24 +5,32 @@ html(lang="en")
         title Администрирование пользователей
         link(href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
-        link(href="/stylesheets/css/topAndBottom.css" rel="stylesheet")
-        link(href="/stylesheets/css/authorAdm.css" rel="stylesheet")
+        link(href="/stylesheets/authorAdm.css" rel="stylesheet")
+        link(href="/stylesheets/topAndBottom.css" rel="stylesheet")
+        - var i=0;
+            mixin rowsTable(Name, SecName, Email, Phone, Ranking, Price)
+                tr
+                    td #{Name}
+                    td #{SecName}
+                    td #{Email}
+                    td #{Phone}
+                    td #{Ranking}
+                    td #{Price}
     body
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation")
                 span.navbar-toggler-icon
             #navbarsExample08.collapse.navbar-collapse.justify-content-md-center
                 ul.navbar-nav
-                    li.nav-item.active
-                        a.nav-link(href="#")
-                            | Главная
-                            span.sr-only (current)
                     li.nav-item
-                        a.nav-link(href="#") Авторы
+                        a.nav-link(href="/") Главная
+                    li.nav-item
+                        a.nav-link(href="/authors") Авторы
                     li.nav-item
                         a.nav-link(href="#") Посты
-                    li.nav-item.dropdown
+                    li.nav-item.dropdown.active
                         a#dropdown08.nav-link.dropdown-toggle(href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Меню
+                        span.sr-only (current)
                         .dropdown-menu(aria-labelledby="dropdown08")
                             a.dropdown-item(href="#") Админочка
                             a.dropdown-item(href="#") Сенсации
@@ -32,27 +40,22 @@ html(lang="en")
         table#authorsTable.table.table-striped.table-bordered
             thead
                 tr
-                    th Name
-                    th Position
-                    th Office
-                    th Age
-                    th Start date
-                    th Salary
+                    th Имя
+                    th Фамилия
+                    th Email
+                    th Телефон
+                    th Рейтинг
+                    th Стоимость
             tbody
-                tr
-                    td Tiger Nixon
-                    td System Architect
-                    td Edinburgh
-                    td 61
-                    td 2011/04/25
-                    td $320,800
-                tr
-                    td Garrett Winters
-                    td Accountant
-                    td Tokyo
-                    td 63
-                    td 2011/07/25
-                    td $170,750
+                -for (let i = 0; i < authors.length; i++)
+                    +rowsTable(
+                        authors[i].dataValues.Name,
+                        authors[i].dataValues.SecName,
+                        authors[i].dataValues.Email,
+                        authors[i].dataValues.Phone,
+                        authors[i].dataValues.Ranking,
+                        authors[i].dataValues.Price
+                    )
         footer.blog-footer
             p
                 | Blog template built for
@@ -81,6 +84,7 @@ html(lang="en")
                 }
             }
         // Placed at the end of the document so the pages load faster
+        script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
         script(src="/assets/js/vendor/popper.min.js")
         script(src="/dist/js/bootstrap.min.js")
         script(src="/assets/js/vendor/holder.min.js")
