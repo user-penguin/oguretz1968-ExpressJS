@@ -26,12 +26,12 @@ router.get('/authorAdmin', async function (req, res, next) {
 /* GET Article admin page */
 router.get('/articleAdmin', async function (req, res, next) {
   let articleWithAuthors = await Article.findAll({
-    include: [{ author: Author }]
+    include: [{ model: Author, as: 'Author' }]
   })
     .catch((err) => {
       console.log(err)
     })
-  res.render('articleWithAuthor', {
+  res.render('articleAdmin', {
     articleWithAuthor: articleWithAuthors
   })
 })

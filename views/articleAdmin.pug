@@ -8,10 +8,10 @@ html(lang="en")
         link(href="/stylesheets/authorAdm.css" rel="stylesheet")
         link(href="/stylesheets/topAndBottom.css" rel="stylesheet")
         - var i=0;
-            mixin rowsTable(Title, CreatedAT, Author)
+            mixin rowsTable(Title, CreatedAt, Author)
                 tr
                     td #{Title}
-                    td #{CreatedAT}
+                    td #{CreatedAt}
                     td #{Author}
 
     body
@@ -42,11 +42,11 @@ html(lang="en")
                     th Время создания
                     th Автор
             tbody
-                -for (let i = 0; i < authors.length; i++)
+                -for (let i = 0; i < articleWithAuthor.length; i++)
                     +rowsTable(
-                        authors[i].dataValues.Name,
-                        authors[i].dataValues.SecName,
-                        authors[i].dataValues.Email
+                        articleWithAuthor[i].dataValues.Title,
+                        articleWithAuthor[i].dataValues.createdAt.toString(),
+                        articleWithAuthor[i].Author.dataValues.Name
                     )
         footer.blog-footer
             p
