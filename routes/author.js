@@ -1,9 +1,28 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
+const Author = require('../modules/database/models/Author')
 
-/* GET home page. */
-router.get('/16', function(req, res, next) {
-    res.render('author');
-});
+/* GET all authors */
+router.get('/', function (req, res) {
+  var authors = Author.findAll({
+  })
+    .catch((err) => {
+      console.log(err)
+    })
+  res.render('authors', { authors: authors })
+})
 
-module.exports = router;
+// /* GET home page. */
+// router.get('/:id', function (req, res, next) {
+//   var id = req.params.id
+//   var biography = Author.findAll({
+//     where: {
+//       id: id
+//     }
+//   }).catch((err) => {
+//     console.log(err)
+//   })
+//   res.render('author', { biography: biography })
+// })
+
+module.exports = router

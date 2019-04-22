@@ -8,11 +8,6 @@ router.get('/', function (req, res, next) {
   res.render('index')
 })
 
-/* GET Authors */
-router.get('/authors', function (req, res, next) {
-  res.render('authors')
-})
-
 /* GET AuthorAdmins page */
 router.get('/authorAdmin', async function (req, res, next) {
   let authorData = await Author.findAll({
@@ -34,11 +29,6 @@ router.get('/articleAdmin', async function (req, res, next) {
   res.render('articleAdmin', {
     articleWithAuthor: articleWithAuthors
   })
-})
-
-/* GET list of all posts */
-router.get('/posts', function (req, res, next) {
-  res.render('posts')
 })
 
 module.exports = router

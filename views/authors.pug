@@ -6,6 +6,14 @@ html(lang="en")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
         link(href="/stylesheets/topAndBottom.css" rel="stylesheet")
         link(href="/stylesheets/authors.css" rel="stylesheet")
+        - var i=0;
+            mixin rowsTable(Name, Ranking, Price, Mission, createdAt)
+                tr
+                    td #{Name}
+                    td #{Ranking}
+                    td #{Price}
+                    td #{Mission}
+                    td #{createdAt}
     body
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation")
@@ -15,10 +23,10 @@ html(lang="en")
                     li.nav-item
                         a.nav-link(href="/") Главная
                     li.nav-item.active
-                        a.nav-link(href="/authors") Авторы
+                        a.nav-link(href="/author") Авторы
                             span.sr-only (current)
                     li.nav-item
-                        a.nav-link(href="/posts") Посты
+                        a.nav-link(href="/article") Посты
                     li.nav-item.dropdown
                         a#dropdown08.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Меню
                         .dropdown-menu(aria-labelledby='dropdown08')
@@ -36,84 +44,93 @@ html(lang="en")
                                     thead
                                         tr
                                             th
-                                                span User
+                                                span Имя
                                             th
-                                                span Created
+                                                span Рейтинг
                                             th.text-center
-                                                span Status
+                                                span Цена
                                             th
-                                                span Email
+                                                span Слоган
                                             th  
+                                                span Профиль создан
                                     tbody
-                                        tr
-                                            td
-                                                img.avatar(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"  alt="")
-                                                a.user-link(href='/author/16') Днепропетровская Анастасия Валерьевна
-                                                span.user-subhead Member
-                                            td 2013/08/12
-                                            td.text-center
-                                                span.label.label-default pending
-                                            td
-                                                a(href="#") marlon@brando.com
-                                            td(style="width: 20%;")
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-search-plus.fa-stack-1x.fa-inverse
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-pencil.fa-stack-1x.fa-inverse
-                                                a.table-link.danger(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-trash-o.fa-stack-1x.fa-inverse
-                                        tr
-                                            td
-                                                img.avatar(src="https://bootdey.com/img/Content/user_3.jpg" alt="")
-                                                a.user-link(href="#") Колымаж Оксана Евгеньевна
-                                                span.user-subhead Admin
-                                            td 2013/08/12
-                                            td.text-center
-                                                span.label.label-success Active
-                                            td
-                                                a(href="#") marlon@brando.com
-                                            td(style="width: 20%;")
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-search-plus.fa-stack-1x.fa-inverse
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-pencil.fa-stack-1x.fa-inverse
-                                                a.table-link.danger(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-trash-o.fa-stack-1x.fa-inverse
-                                        tr
-                                            td
-                                                img.avatar(src="https://bootdey.com/img/Content/user_2.jpg" alt="")
-                                                a.user-link(href="#") Шаталин Максим Сергеевич
-                                                span.user-subhead Member
-                                            td 2013/08/12
-                                            td.text-center
-                                                span.label.label-danger inactive
-                                            td
-                                                a(href="#") marlon@brando.com
-                                            td(style="width: 20%;")
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-search-plus.fa-stack-1x.fa-inverse
-                                                a.table-link(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-pencil.fa-stack-1x.fa-inverse
-                                                a.table-link.danger(href="#")
-                                                    span.fa-stack
-                                                        i.fa.fa-square.fa-stack-2x
-                                                        i.fa.fa-trash-o.fa-stack-1x.fa-inverse
+                                        -for (let i = 0; i < authors.length; i++)
+                                            +rowsTable(
+                                              authors[i].dataValues.Name,
+                                              authors[i].dataValues.Ranking,
+                                              authors[i].dataValues.Price,
+                                              authors[i].dataValues.Mission,
+                                              authors[i].dataValues.createAt.toString()
+                                            )
+                                        //tr
+                                        //    td
+                                        //        img.avatar(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"  alt="")
+                                        //        a.user-link(href='/author/16') Днепропетровская Анастасия Валерьевна
+                                        //        span.user-subhead Member
+                                        //    td 2013/08/12
+                                        //    td.text-center
+                                        //        span.label.label-default pending
+                                        //    td
+                                        //        a(href="#") marlon@brando.com
+                                        //    td(style="width: 20%;")
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-search-plus.fa-stack-1x.fa-inverse
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-pencil.fa-stack-1x.fa-inverse
+                                        //        a.table-link.danger(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-trash-o.fa-stack-1x.fa-inverse
+                                        //tr
+                                        //    td
+                                        //        img.avatar(src="https://bootdey.com/img/Content/user_3.jpg" alt="")
+                                        //        a.user-link(href="#") Колымаж Оксана Евгеньевна
+                                        //        span.user-subhead Admin
+                                        //    td 2013/08/12
+                                        //    td.text-center
+                                        //        span.label.label-success Active
+                                        //    td
+                                        //        a(href="#") marlon@brando.com
+                                        //    td(style="width: 20%;")
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-search-plus.fa-stack-1x.fa-inverse
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-pencil.fa-stack-1x.fa-inverse
+                                        //        a.table-link.danger(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-trash-o.fa-stack-1x.fa-inverse
+                                        //tr
+                                        //    td
+                                        //        img.avatar(src="https://bootdey.com/img/Content/user_2.jpg" alt="")
+                                        //        a.user-link(href="#") Шаталин Максим Сергеевич
+                                        //        span.user-subhead Member
+                                        //    td 2013/08/12
+                                        //    td.text-center
+                                        //        span.label.label-danger inactive
+                                        //    td
+                                        //        a(href="#") marlon@brando.com
+                                        //    td(style="width: 20%;")
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-search-plus.fa-stack-1x.fa-inverse
+                                        //        a.table-link(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-pencil.fa-stack-1x.fa-inverse
+                                        //        a.table-link.danger(href="#")
+                                        //            span.fa-stack
+                                        //                i.fa.fa-square.fa-stack-2x
+                                        //                i.fa.fa-trash-o.fa-stack-1x.fa-inverse
         footer.blog-footer
             p
                 | Blog template built for
