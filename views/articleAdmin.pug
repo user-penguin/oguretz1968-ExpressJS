@@ -28,32 +28,59 @@ html(lang="en")
                                     br
                                     br
                                     select( name='author' required=true)
-                                        option(value=''   hidden ) Выберите тип
-                                        -for (let i = 0; i < articleWithAuthor.length; i++)
-                                            option(value=articleWithAuthor[i].Author.dataValues.Name)
+                                        option(value=''   hidden ) Выберите автора
+                                        -for (let i = 0; i < authors.length; i++)
+                                            option(value=authors[i].dataValues.Name) #{authors[i].dataValues.Name}
                                     br
                                     br
 
                             .form__buttons
-                                input.btn.btn-default(type="submit" class="uk-button uk-button-primary top-margin" value="Отправить")
+                                input.btn.btn-info(type="submit" class="uk-button uk-button-primary top-margin" value="Отправить")
 
                     .modal-footer
-                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+                        button.btn.btn-info(type='button', data-dismiss='modal') Close
+        - var editArticleNumber
+        #myEdit.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h4.modal-title Изменение данных
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        form(action="/article/edit_article", method="post" class="form" id='editArticleForm' enctype="application/json")
+                            .form__container
+                                .form__inputs
+                                    input(type="text" id='editTitle' name='editTitle' value=' ' placeholder="Заголовок" class="form__input"   required)
+                                    br
+                                    br
+                                    input(type="text" id='editText1' name='editText1' placeholder="Часть 1" class="form__input"  required)
+                                    br
+                                    br
+                                    input(type="text" id='editText2' name='editText2' placeholder="Часть 2" class="form__input" required)
+                                    br
+                                    br
+                                    input(id='idArticle' name='idArticle' readonly)
+                                    br
+                                    br
+
+                            .form__buttons
+                                input.btn.btn-info(type="submit" class="uk-button uk-button-primary top-margin" value="Отправить")
+
+                    .modal-footer
+                        button.btn.btn-info(type='button', data-dismiss='modal') Close
 
         - var i=0;
-            mixin rowsTable(Title, CreatedAt, Author, Button)
+        - var num=0;
+            mixin rowsTable(id, Title, CreatedAt, Author, Button)
                 tr
+                    td #{id}
                     td #{Title}
                     td #{CreatedAt}
                     td #{Author}
                     td
-                        a#navbarDropdownMenuLink.nav-link(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                            i.material-icons menu
-                            p.d-lg-none.d-md-block
-                                | Some Actions
-                        .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownMenuLink')
-                            a.dropdown-item(href='#' onclick="$.ajax({type: 'POST', url: '/article/delete_article', data: 'id=" + id + "', })") Удалить
-                            a.dropdown-item(href='#' onclick="$.ajax({type: 'POST', url: '/article/edit_article', data: 'id=" + id + "', })" ) Изменить
+                        a.btn.btn-danger.btn-lg(href='/article/delete_article/'+id) Удалить
+                        button.btn.btn-info.btn-lg(onclick='fillEditField(' + num + ",'" + articleWithAuthor[num].dataValues.Title + "','" + articleWithAuthor[num].dataValues.Text1 + "','" + articleWithAuthor[num].dataValues.Text2 + "','" + articleWithAuthor[num++].dataValues.id  + "')", type='button', data-toggle='modal', data-target='#myEdit') Изменить
+
     body
         nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation")
@@ -79,6 +106,7 @@ html(lang="en")
 
             thead
                 tr
+                    th Id
                     th Заголовок
                     th Время создания
                     th Автор
@@ -88,6 +116,7 @@ html(lang="en")
             tbody
                 -for (let i = 0; i < articleWithAuthor.length; i++)
                     +rowsTable(
+                        articleWithAuthor[i].dataValues.id,
                         articleWithAuthor[i].dataValues.Title,
                         articleWithAuthor[i].dataValues.createdAt.toString(),
                         articleWithAuthor[i].Author.dataValues.Name
@@ -100,6 +129,18 @@ html(lang="en")
                 a(href="https://github.com/user-penguin") @user-penguin
                 | .
                 a(href="#")  Back to top
+        script.
+            function fillEditField(i, title1, text1, text2, id) {
+                console.log('Я тут')
+                var editTitle = document.getElementById('editTitle');
+                var editText1 = document.getElementById('editText1');
+                var editText2 = document.getElementById('editText2');
+                var idArticle = document.getElementById('idArticle');
+                editTitle.value = title1;
+                editText1.value = text1;
+                editText2.value = text2;
+                idArticle.value = id
+            }
         script.
             function tableSearch() {
                 var phrase = document.getElementById('searchString');

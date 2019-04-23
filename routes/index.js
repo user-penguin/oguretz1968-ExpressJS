@@ -20,6 +20,12 @@ router.get('/authorAdmin', async function (req, res, next) {
 
 /* GET Article admin page */
 router.get('/articleAdmin', async function (req, res, next) {
+  let authors = await Author.findAll({
+
+  })
+    .catch((err) => {
+      console.log(err)
+    })
   let articleWithAuthors = await Article.findAll({
     include: [{ model: Author, as: 'Author' }]
   })
@@ -27,7 +33,8 @@ router.get('/articleAdmin', async function (req, res, next) {
       console.log(err)
     })
   res.render('articleAdmin', {
-    articleWithAuthor: articleWithAuthors
+    articleWithAuthor: articleWithAuthors,
+    authors: authors
   })
 })
 

@@ -9,11 +9,11 @@ router.get('/', function (req, res, next) {
 })
 
 /* GET concrete article */
-router.get('/:id', function (req, res) {
-  var id = req.params.id
-  var obj = {}
-  res.render('article', { obj: obj })
-})
+// router.get('/:id', function (req, res) {
+//   var id = req.params.id
+//   var obj = {}
+//   res.render('article', { obj: obj })
+// })
 
 /* ADD new article */
 router.use('/add_new_article', async function (req, res) {
@@ -27,6 +27,33 @@ router.use('/add_new_article', async function (req, res) {
     AuthorId: parseInt(author.dataValues.id)
   }
   )
+  res.redirect('/articleAdmin')
 })
 
+/* DELETE article */
+router.use('/delete_article/:id', async function (req, res) {
+  var id = req.params.id
+  await Article.destroy({
+    where: {
+      id: id
+    }
+  })
+  res.redirect('/articleAdmin')
+})
+
+/* EDIT article */
+router.use('/edit_article', async function (req, res) {
+  var id = parseInt(req.body.idArticle)
+  await Article.update({
+    Title: req.body.editTitle,
+    Text1: req.body.editText1,
+    Text2: req.body.editText2
+  },
+  {
+    where: {
+      id: id
+    }
+  })
+  res.redirect('/articleAdmin')
+})
 module.exports = router
