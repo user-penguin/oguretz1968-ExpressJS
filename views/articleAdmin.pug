@@ -78,7 +78,7 @@ html(lang="en")
                     td #{CreatedAt}
                     td #{Author}
                     td
-                        a.btn.btn-danger.btn-lg(href='/article/delete_article/'+id) Удалить
+                        a.btn.btn-danger.btn-lg(href='/article/delete_article/  '+id) Удалить
                         button.btn.btn-info.btn-lg(onclick='fillEditField(' + num + ",'" + articleWithAuthor[num].dataValues.Title + "','" + articleWithAuthor[num].dataValues.Text1 + "','" + articleWithAuthor[num].dataValues.Text2 + "','" + articleWithAuthor[num++].dataValues.id  + "')", type='button', data-toggle='modal', data-target='#myEdit') Изменить
 
     body
@@ -103,7 +103,6 @@ html(lang="en")
         input#searchString.form-control.input-sm(type="text" onkeyup="tableSearch()" placeholder="Поиск по таблице" aria-controls="example")
         // поиск строк
         table#authorsTable.table.table-striped.table-bordered
-
             thead
                 tr
                     th Id
@@ -112,7 +111,6 @@ html(lang="en")
                     th Автор
                     th
                         button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal') Добавить
-
             tbody
                 -for (let i = 0; i < articleWithAuthor.length; i++)
                     +rowsTable(

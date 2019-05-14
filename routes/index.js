@@ -17,6 +17,16 @@ router.get('/authorAdmin', async function (req, res, next) {
   })
   res.render('authorAdmin', { authors: authorData })
 })
+/* Запрос на получение данных о пользователях */
+router.get('/getAuthorAdminTable', async function (req, res) {
+  console.log('кря')
+  var authors = await Author.findAll({
+  })
+    .catch((err) => {
+      console.log(err)
+    })
+  res.send(JSON.stringify(authors))
+})
 
 /* GET Article admin page */
 router.get('/articleAdmin', async function (req, res, next) {

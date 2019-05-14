@@ -12,6 +12,10 @@ router.get('/', function (req, res) {
   res.render('authors', { authors: authors })
 })
 
+
+
+// app.listen(4000)
+
 // /* GET home page. */
 // router.get('/:id', function (req, res, next) {
 //   var id = req.params.id
