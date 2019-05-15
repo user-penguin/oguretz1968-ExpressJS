@@ -25,8 +25,8 @@
     $('[data-toggle="popover"]').popover()
 
     // Demos within modals
-    $('.tooltip-test').tooltip()
-    $('.popover-test').popover()
+    $('.tooltip-sendForm').tooltip()
+    $('.popover-sendForm').popover()
 
     // Indeterminate checkbox example
     $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)

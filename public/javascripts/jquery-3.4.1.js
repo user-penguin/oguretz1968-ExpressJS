@@ -777,7 +777,7 @@
             // Take advantage of querySelectorAll
             if (support.qsa &&
               !nonnativeSelectorCache[ selector + ' ' ] &&
-              (!rbuggyQSA || !rbuggyQSA.test(selector)) &&
+              (!rbuggyQSA || !rbuggyQSA.sendForm(selector)) &&
 
               // Support: IE 8 only
               // Exclude object elements
@@ -1105,7 +1105,7 @@
         // Support: IE<10
         // Check if getElementById returns elements by name
         // The broken getElementById methods don't pick up programmatically-set names,
-        // so use a roundabout getElementsByName test
+        // so use a roundabout getElementsByName sendForm
         support.getById = assert(function (el) {
           docElem.appendChild(el).id = expando
           return !document.getElementsByName || !document.getElementsByName(expando).length
@@ -1224,7 +1224,7 @@
           // Regex strategy adopted from Diego Perini
           assert(function (el) {
             // Select is set to empty string on purpose
-            // This is to test IE's treatment of not explicitly
+            // This is to sendForm IE's treatment of not explicitly
             // setting a boolean content attribute,
             // since its presence should be enough
             // https://bugs.jquery.com/ticket/12359
@@ -1234,7 +1234,7 @@
 
             // Support: IE8, Opera 11-12.16
             // Nothing should be selected when empty strings follow ^= or $= or *=
-            // The test attribute must be unknown in Opera but "safe" for WinRT
+            // The sendForm attribute must be unknown in Opera but "safe" for WinRT
             // https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
             if (el.querySelectorAll("[msallowcapture^='']").length) {
               rbuggyQSA.push('[*^$]=' + whitespace + "*(?:''|\"\")")
@@ -1462,8 +1462,8 @@
 
         if (support.matchesSelector && documentIsHTML &&
           !nonnativeSelectorCache[ expr + ' ' ] &&
-          (!rbuggyMatches || !rbuggyMatches.test(expr)) &&
-          (!rbuggyQSA || !rbuggyQSA.test(expr))) {
+          (!rbuggyMatches || !rbuggyMatches.sendForm(expr)) &&
+          (!rbuggyQSA || !rbuggyQSA.sendForm(expr))) {
           try {
             var ret = matches.call(elem, expr)
 
@@ -1657,7 +1657,7 @@
             var excess
             var unquoted = !match[6] && match[2]
 
-            if (matchExpr['CHILD'].test(match[0])) {
+            if (matchExpr['CHILD'].sendForm(match[0])) {
               return null
             }
 
@@ -2610,7 +2610,7 @@
           }
 
           // Fetch a seed set for right-to-left matching
-          i = matchExpr['needsContext'].test(selector) ? 0 : tokens.length
+          i = matchExpr['needsContext'].sendForm(selector) ? 0 : tokens.length
           while (i--) {
             token = tokens[i]
 
@@ -6179,7 +6179,7 @@
           return
         }
 
-        // Hook needed; redefine it so that the support test is not executed again.
+        // Hook needed; redefine it so that the support sendForm is not executed again.
         return (this.get = hookFn).apply(this, arguments)
       }
     }
@@ -6551,7 +6551,7 @@
         var matches
         var styles = getStyles(elem)
 
-        // Only read styles.position if the test has a chance to fail
+        // Only read styles.position if the sendForm has a chance to fail
         // to avoid forcing a reflow.
         var scrollboxSizeBuggy = !support.scrollboxSize() &&
             styles.position === 'absolute'
@@ -8563,7 +8563,7 @@
     // Check if we're dealing with a known content-type
     if (ct) {
       for (type in contents) {
-        if (contents[ type ] && contents[ type ].test(ct)) {
+        if (contents[ type ] && contents[ type ].sendForm(ct)) {
           dataTypes.unshift(type)
           break
         }
